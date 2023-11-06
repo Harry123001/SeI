@@ -21,3 +21,31 @@
  * Instantiate an instance of your Deck and start drawing random cards!
  */
 
+class Card {
+    constructor(suit, rank, score){
+      this.suit = suit
+      this.rank = rank
+      this.score = score
+    }
+  }
+  
+  class Deck {
+    constructor(){
+      this.cards = []
+      this.createDeck()
+    }
+  
+    createDeck(){
+      const suits = ["Hearts", "Diamonds", "Spades", "Clubs"]
+      const ranks = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace"]
+  
+      for (let i = 0; i < suits.length; i++){
+        for (let j = 0; j < ranks.length; j++){
+          const card = new Card(suits[i], ranks[j], j + 2)
+          this.cards.push(card)
+        }
+      }
+  
+      this.shuffle()
+    }
+  }
