@@ -1,24 +1,28 @@
 import './App.css';
 import { useState, useEffect } from 'react';
+import axios from 'axios';
 
 function App() {
   const [color, setColor] = useState()
 
-  const fetchColor = () => {
+  const fetchColor = async () => {
     const r = Math.floor(Math.random() * 256)
     const g = Math.floor(Math.random() * 256)
     const b = Math.floor(Math.random() * 256)
-    fetch(`http://www.thecolorapi.com/id?rgb=${r},${g},${b}`)
-    .then(res => res.json())
-    .then(res => {
-        console.log(res)
-        setColor(res)
-    })
+    
+    const res = await axios.get (`http://www.thecolorapi.com/id?rgb=${r},${g},${b}`)
+    setColor(res.data)
 }
+  useEffect(() => { // callback function
+    fetchColor()
+  }, []) //dependency array
 
   return (
     <div className="App">
-      <h1>Hello World</h1>
+      <div>
+        {color ? <img src={color.image.bare} /> : null}
+        <button onClick={fetchColor}>Get New Color</button>
+      </div>
     </div>
   );
 }
