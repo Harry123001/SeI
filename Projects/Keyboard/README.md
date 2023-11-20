@@ -49,16 +49,3 @@ class for that div to `active`.
 
 You should not have to add each event listener separately! Can you loop through
 all the letters?
-
-## Super Mega Bonus
-
-Make the browser speak the key out loud as you type. You'll have to do some
-research into the
-[Speech Synthesis API](https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesisUtterance)
-for this
-
-## Plagiarism
-
-Take a moment to refamiliarize yourself with the
-[Plagiarism policy](https://git.generalassemb.ly/DC-WDI/Administrative/blob/master/plagiarism.md).
-Plagiarized work will not be accepted.
